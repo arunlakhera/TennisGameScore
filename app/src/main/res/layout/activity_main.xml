@@ -7,6 +7,16 @@
     android:background="#000000"
     android:orientation="vertical">
 
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WIMBLEDON 2018"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:background="#1B5E20"
+        />
     <LinearLayout
         android:id="@+id/player_layout"
         android:layout_width="match_parent"
@@ -38,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="R. NADAL"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
+                android:textColor="#2196F3"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -103,7 +113,7 @@
                     android:layout_weight="1"
                     android:text="0"
                     android:textAlignment="center"
-                    android:textColor="#03A9F4"
+                    android:textColor="#9E9E9E"
                     android:textSize="25sp" />
 
                 <TextView
@@ -113,7 +123,7 @@
                     android:layout_weight="1"
                     android:text="0"
                     android:textAlignment="center"
-                    android:textColor="#03A9F4"
+                    android:textColor="#9E9E9E"
                     android:textSize="25sp" />
 
                 <TextView
@@ -123,7 +133,7 @@
                     android:layout_weight="1"
                     android:text="0"
                     android:textAlignment="center"
-                    android:textColor="#03A9F4"
+                    android:textColor="#9E9E9E"
                     android:textSize="25sp" />
 
             </LinearLayout>
@@ -139,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textAlignment="center"
-                android:textColor="#C2185B"
+                android:textColor="#FFFFFF"
                 android:textSize="50sp" />
 
             <Button
@@ -149,8 +159,9 @@
                 android:onClick="addPoint_player_1"
                 android:text="Add Point"
                 android:textColor="#FFFFFF"
-                android:textSize="15sp" />
-
+                android:textSize="15sp"
+                android:layout_margin="5dp"
+                />
 
         </LinearLayout>
 
@@ -184,7 +195,7 @@
                 android:layout_height="wrap_content"
                 android:text="R. FEDERER"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
+                android:textColor="#2196F3"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -247,7 +258,7 @@
                     android:layout_weight="1"
                     android:text="0"
                     android:textAlignment="center"
-                    android:textColor="#03A9F4"
+                    android:textColor="#9E9E9E"
                     android:textSize="25sp" />
 
                 <TextView
@@ -257,7 +268,7 @@
                     android:layout_weight="1"
                     android:text="0"
                     android:textAlignment="center"
-                    android:textColor="#03A9F4"
+                    android:textColor="#9E9E9E"
                     android:textSize="25sp" />
 
                 <TextView
@@ -267,7 +278,7 @@
                     android:layout_weight="1"
                     android:text="0"
                     android:textAlignment="center"
-                    android:textColor="#03A9F4"
+                    android:textColor="#9E9E9E"
                     android:textSize="25sp" />
 
             </LinearLayout>
@@ -283,7 +294,7 @@
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textAlignment="center"
-                android:textColor="#C2185B"
+                android:textColor="#FFFFFF"
                 android:textSize="50sp" />
 
             <Button
@@ -293,7 +304,9 @@
                 android:onClick="addPoint_player_2"
                 android:text="Add Point"
                 android:textColor="#FFFFFF"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:layout_margin="5dp"
+                />
 
 
         </LinearLayout>
@@ -304,11 +317,13 @@
         android:id="@+id/reset_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#C2185B"
-        android:onClick="addPoint_player_2"
+        android:background="#1B5E20"
+        android:onClick="resetScore"
         android:text="RESET"
         android:textColor="#FFFFFF"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:layout_margin="10dp"
+        />
 
 
 </LinearLayout>

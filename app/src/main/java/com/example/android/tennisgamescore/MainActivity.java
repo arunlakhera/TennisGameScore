@@ -131,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
                     if (
                             ((player1_Set_1_Score == 6) && (player1_Set_1_Score - player2_Set_1_Score) > 1) ||
                                     ((player1_Set_1_Score == 7) && (player1_Set_1_Score - player2_Set_1_Score) == 1)
-
                             ) {
                         player1_Set1_flag = "C";
                         player2_Set1_flag = "C";
@@ -190,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
                             ) {
                         player1_Set3_flag = "C";
                         player2_Set3_flag = "C";
+
                     }
 
                     if ((player1_Set_3_Score >= 6) && (player1_Set_3_Score - player2_Set_3_Score) > 1) {
@@ -431,6 +431,8 @@ public class MainActivity extends AppCompatActivity {
          player2_Set1_flag = "I";
          player2_Set2_flag = "I";
          player2_Set3_flag = "I";
+
+        showScorePlayer();
 
     }
 
