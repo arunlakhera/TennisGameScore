@@ -76,6 +76,27 @@ public class MainActivity extends AppCompatActivity {
             player2Set1.setTextColor(Color.parseColor("#FFFFFF"));
         }
 
+        if (player1_Set_2_Score > player2_Set_2_Score) {
+            player1Set2.setTextColor(Color.parseColor("#558B2F"));
+            player2Set2.setTextColor(Color.parseColor("#FFFFFF"));
+        }else if (player2_Set_2_Score > player1_Set_2_Score) {
+            player2Set2.setTextColor(Color.parseColor("#558B2F"));
+            player1Set2.setTextColor(Color.parseColor("#FFFFFF"));
+        }else{
+            player1Set2.setTextColor(Color.parseColor("#FFFFFF"));
+            player2Set2.setTextColor(Color.parseColor("#FFFFFF"));
+        }
+
+        if (player1_Set_3_Score > player2_Set_3_Score) {
+            player1Set3.setTextColor(Color.parseColor("#558B2F"));
+            player2Set3.setTextColor(Color.parseColor("#FFFFFF"));
+        }else if (player2_Set_3_Score > player1_Set_3_Score) {
+            player2Set3.setTextColor(Color.parseColor("#558B2F"));
+            player1Set3.setTextColor(Color.parseColor("#FFFFFF"));
+        }else{
+            player1Set3.setTextColor(Color.parseColor("#FFFFFF"));
+            player2Set3.setTextColor(Color.parseColor("#FFFFFF"));
+        }
     }
 
     // Function to add points for player 1
