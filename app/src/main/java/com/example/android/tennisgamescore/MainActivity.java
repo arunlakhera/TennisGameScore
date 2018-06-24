@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,13 +31,21 @@ public class MainActivity extends AppCompatActivity {
     String player2_Set2_flag = "I";
     String player2_Set3_flag = "I";
 
+    Button player1_AddPoint;
+    Button player2_AddPoint;
+    Boolean matchFlag = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        player1_AddPoint = (Button) findViewById(R.id.player1_AddPoint);
+        player2_AddPoint = (Button) findViewById(R.id.player2_AddPoint);
+
     }
 
-    public void changeColor(){
+    public void changeColor() {
 
 
         TextView currentScorePlayer1 = (TextView) findViewById(R.id.player1_serve_score);
@@ -54,11 +63,11 @@ public class MainActivity extends AppCompatActivity {
         if (player1_currentScore > player2_currentScore) {
             currentScorePlayer1.setTextColor(Color.parseColor("#558B2F"));
             currentScorePlayer2.setTextColor(Color.parseColor("#FFFFFF"));
-        }else if (player2_currentScore > player1_currentScore){
+        } else if (player2_currentScore > player1_currentScore) {
 
             currentScorePlayer2.setTextColor(Color.parseColor("#558B2F"));
             currentScorePlayer1.setTextColor(Color.parseColor("#FFFFFF"));
-        }else {
+        } else {
             currentScorePlayer2.setTextColor(Color.parseColor("#FFFFFF"));
             currentScorePlayer1.setTextColor(Color.parseColor("#FFFFFF"));
 
@@ -68,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
         if (player1_Set_1_Score > player2_Set_1_Score) {
             player1Set1.setTextColor(Color.parseColor("#558B2F"));
             player2Set1.setTextColor(Color.parseColor("#FFFFFF"));
-        }else if (player2_Set_1_Score > player1_Set_1_Score) {
+        } else if (player2_Set_1_Score > player1_Set_1_Score) {
             player2Set1.setTextColor(Color.parseColor("#558B2F"));
             player1Set1.setTextColor(Color.parseColor("#FFFFFF"));
-        }else{
+        } else {
             player1Set1.setTextColor(Color.parseColor("#FFFFFF"));
             player2Set1.setTextColor(Color.parseColor("#FFFFFF"));
         }
@@ -79,10 +88,10 @@ public class MainActivity extends AppCompatActivity {
         if (player1_Set_2_Score > player2_Set_2_Score) {
             player1Set2.setTextColor(Color.parseColor("#558B2F"));
             player2Set2.setTextColor(Color.parseColor("#FFFFFF"));
-        }else if (player2_Set_2_Score > player1_Set_2_Score) {
+        } else if (player2_Set_2_Score > player1_Set_2_Score) {
             player2Set2.setTextColor(Color.parseColor("#558B2F"));
             player1Set2.setTextColor(Color.parseColor("#FFFFFF"));
-        }else{
+        } else {
             player1Set2.setTextColor(Color.parseColor("#FFFFFF"));
             player2Set2.setTextColor(Color.parseColor("#FFFFFF"));
         }
@@ -90,41 +99,57 @@ public class MainActivity extends AppCompatActivity {
         if (player1_Set_3_Score > player2_Set_3_Score) {
             player1Set3.setTextColor(Color.parseColor("#558B2F"));
             player2Set3.setTextColor(Color.parseColor("#FFFFFF"));
-        }else if (player2_Set_3_Score > player1_Set_3_Score) {
+        } else if (player2_Set_3_Score > player1_Set_3_Score) {
             player2Set3.setTextColor(Color.parseColor("#558B2F"));
             player1Set3.setTextColor(Color.parseColor("#FFFFFF"));
-        }else{
+        } else {
             player1Set3.setTextColor(Color.parseColor("#FFFFFF"));
             player2Set3.setTextColor(Color.parseColor("#FFFFFF"));
         }
     }
 
+
+    public void checkScore() {
+        if ((player1_Set1_flag.equals("C") && player1_Set2_flag.equals("C") && player1_Set3_flag.equals("C")) && (player2_Set1_flag.equals("C") && player2_Set2_flag.equals("C") && player2_Set3_flag.equals("C"))) {
+
+            player1_AddPoint.setEnabled(false);
+            player2_AddPoint.setEnabled(false);
+
+            player1_AddPoint.setVisibility(View.INVISIBLE);
+            player2_AddPoint.setVisibility(View.INVISIBLE);
+
+        }
+
+    }
+
     // Function to add points for player 1
     public void addPoint_player_1(View view) {
 
-
         // 1. Add 15 point if score is 0 or 15  & Add 10 point if score is equal to or more than 30
 
-        if (player1_Set1_flag != "C" || player1_Set2_flag != "C" || player1_Set3_flag != "C") {
+        checkScore();
 
-            if (player1_currentScore == 0 || player1_currentScore == 15) {
+        if (!matchFlag) {
+            
+                if (player1_currentScore == 0 || player1_currentScore == 15) {
 
-                player1_currentScore = player1_currentScore + 15;
+                    player1_currentScore = player1_currentScore + 15;
 
-            } else if (player1_currentScore >= 30) {
+                } else if (player1_currentScore >= 30) {
 
-                player1_currentScore = player1_currentScore + 10;
+                    player1_currentScore = player1_currentScore + 10;
 
-            }
+                }
 
         }
+
 
         changeColor();
 
         // 2. Check if the player 1 has won the game and increment the set if the game is won by player 1
         if (player1_currentScore > 40 && (player1_currentScore - player2_currentScore) > 10) {
 
-            if (player1_Set1_flag != "C") {
+            if (!player1_Set1_flag.equals("C")) {
 
                 if (player1_Set_1_Score > 5) {
 
@@ -134,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
                             ) {
                         player1_Set1_flag = "C";
                         player2_Set1_flag = "C";
+
                     }
 
                     if ((player1_Set_1_Score >= 6) && (player1_Set_1_Score - player2_Set_1_Score) > 1) {
@@ -144,13 +170,13 @@ public class MainActivity extends AppCompatActivity {
                     }
 
 
-                } else if(player1_Set1_flag != "C"){
+                } else if (!player1_Set1_flag.equals("C") && !player2_Set1_flag.equals("C")) {
                     player1_Set_1_Score++;
                 }
 
             }
 
-            if (player1_Set2_flag != "C" && player1_Set1_flag == "C") {
+            if (!player1_Set2_flag.equals("C") && player1_Set1_flag.equals("C")) {
 
                 if (player1_Set_2_Score > 5) {
 
@@ -171,14 +197,14 @@ public class MainActivity extends AppCompatActivity {
                     }
 
 
-                } else if(player1_Set2_flag != "C"){
+                } else if (!player1_Set2_flag.equals("C") && !player2_Set2_flag.equals("C")) {
                     player1_Set_2_Score++;
                 }
 
 
             }
 
-            if (player1_Set3_flag != "C" && player1_Set1_flag == "C" && player1_Set2_flag == "C") {
+            if (!player1_Set3_flag.equals("C") && player1_Set1_flag.equals("C") && player1_Set2_flag.equals("C")) {
 
                 if (player1_Set_3_Score > 5) {
 
@@ -190,16 +216,26 @@ public class MainActivity extends AppCompatActivity {
                         player1_Set3_flag = "C";
                         player2_Set3_flag = "C";
 
+                        matchFlag = true;
+                        player1_AddPoint.setVisibility(View.INVISIBLE);
+                        player2_AddPoint.setVisibility(View.INVISIBLE);
+
                     }
 
                     if ((player1_Set_3_Score >= 6) && (player1_Set_3_Score - player2_Set_3_Score) > 1) {
                         player1_Set3_flag = "C";
                         player2_Set3_flag = "C";
+
+                        matchFlag = true;
+                        player1_AddPoint.setVisibility(View.INVISIBLE);
+                        player2_AddPoint.setVisibility(View.INVISIBLE);
+
+
                     } else {
                         player1_Set_3_Score++;
                     }
 
-                } else if(player1_Set3_flag != "C"){
+                } else if (!player1_Set3_flag.equals("C") && !player2_Set3_flag.equals("C")) {
                     player1_Set_3_Score++;
                 }
 
@@ -219,9 +255,12 @@ public class MainActivity extends AppCompatActivity {
     // Function to add points for player 2
     public void addPoint_player_2(View view) {
 
+        checkScore();
+
         // 1. Add 15 point if score is 0 or 15  & Add 10 point if score is equal to or more than 30
 
-        if (player2_Set1_flag != "C" || player2_Set2_flag != "C" || player2_Set3_flag != "C") {
+        if (!matchFlag) {
+
             if (player2_currentScore == 0 || player2_currentScore == 15) {
 
                 player2_currentScore = player2_currentScore + 15;
@@ -231,6 +270,7 @@ public class MainActivity extends AppCompatActivity {
                 player2_currentScore = player2_currentScore + 10;
 
             }
+
         }
 
 
@@ -239,13 +279,13 @@ public class MainActivity extends AppCompatActivity {
         // 2. Check if the player 1 has won the game and increment the set if the game is won by player 1
         if (player2_currentScore > 40 && (player2_currentScore - player1_currentScore) > 10) {
 
-            if (player2_Set1_flag != "C") {
+            if (!player2_Set1_flag.equals("C")) {
 
                 if (player2_Set_1_Score > 5) {
 
                     if (
                             ((player2_Set_1_Score == 6) && (player2_Set_1_Score - player1_Set_1_Score) > 1) ||
-                            ((player2_Set_1_Score == 7) && (player2_Set_1_Score - player1_Set_1_Score) == 1)
+                                    ((player2_Set_1_Score == 7) && (player2_Set_1_Score - player1_Set_1_Score) == 1)
                             ) {
                         player2_Set1_flag = "C";
                         player1_Set1_flag = "C";
@@ -258,19 +298,19 @@ public class MainActivity extends AppCompatActivity {
                         player2_Set_1_Score++;
                     }
 
-                } else if(player2_Set1_flag != "C") {
+                } else if (!player2_Set1_flag.equals("C") && !player1_Set1_flag.equals("C")) {
                     player2_Set_1_Score++;
                 }
 
             }
 
-            if (player2_Set2_flag != "C" && player2_Set1_flag == "C") {
+            if (!player2_Set2_flag.equals("C") && player2_Set1_flag.equals("C")) {
 
                 if (player2_Set_2_Score > 5) {
 
                     if (
                             ((player2_Set_2_Score == 6) && (player2_Set_2_Score - player1_Set_2_Score) > 1) ||
-                    ((player2_Set_2_Score == 7) && (player2_Set_2_Score - player1_Set_2_Score) == 1)
+                                    ((player2_Set_2_Score == 7) && (player2_Set_2_Score - player1_Set_2_Score) == 1)
                             ) {
                         player2_Set2_flag = "C";
                         player1_Set2_flag = "C";
@@ -283,32 +323,37 @@ public class MainActivity extends AppCompatActivity {
                         player2_Set_2_Score++;
                     }
 
-                } else if(player2_Set2_flag != "C"){
+                } else if (!player2_Set2_flag.equals("C") && !player1_Set2_flag.equals("C")) {
                     player2_Set_2_Score++;
                 }
 
 
             }
 
-            if (player2_Set3_flag != "C" && player2_Set1_flag == "C" && player2_Set2_flag == "C") {
+            if (!player2_Set3_flag.equals("C") && player2_Set1_flag.equals("C") && player2_Set2_flag.equals("C")) {
 
                 if (player2_Set_3_Score > 5) {
 
                     if (((player2_Set_3_Score == 6) && (player2_Set_3_Score - player1_Set_3_Score) > 1) ||
-                    ((player2_Set_3_Score == 7) && (player2_Set_3_Score - player1_Set_3_Score) == 1)
-                            ){
+                            ((player2_Set_3_Score == 7) && (player2_Set_3_Score - player1_Set_3_Score) == 1)
+                            ) {
                         player2_Set3_flag = "C";
                         player1_Set3_flag = "C";
+                        player1_AddPoint.setVisibility(View.INVISIBLE);
+                        player2_AddPoint.setVisibility(View.INVISIBLE);
                     }
 
                     if ((player2_Set_3_Score >= 6) && (player2_Set_3_Score - player1_Set_3_Score) > 1) {
                         player1_Set3_flag = "C";
                         player2_Set3_flag = "C";
+
+                        player1_AddPoint.setVisibility(View.INVISIBLE);
+                        player2_AddPoint.setVisibility(View.INVISIBLE);
                     } else {
                         player2_Set_3_Score++;
                     }
 
-                } else if(player2_Set3_flag != "C"){
+                } else if (!player2_Set3_flag.equals("C") && !player1_Set3_flag.equals("C")) {
                     player2_Set_3_Score++;
                 }
 
@@ -362,7 +407,7 @@ public class MainActivity extends AppCompatActivity {
                 player1_currentScore = 0;
                 player2_currentScore = 0;
             }
-        } else {
+        } else if (player1_Set3_flag != "C") {
             player1_ServeScore.setText(String.valueOf(player1_currentScore));
         }
 
@@ -391,17 +436,17 @@ public class MainActivity extends AppCompatActivity {
             player2_ServeScore.setText(String.valueOf(player2_currentScore));
         }
 
-        if ((player1_Set1_flag != "C") && (player2_Set1_flag != "C")) {
+        if ((!player1_Set1_flag.equals("C")) && (!player2_Set1_flag.equals("C"))) {
             player1_Set_1_textview.setText(String.valueOf(player1_Set_1_Score));
             player2_Set_1_textview.setText(String.valueOf(player2_Set_1_Score));
         }
 
-        if ((player1_Set2_flag != "C") && (player2_Set2_flag != "C")) {
+        if ((!player1_Set2_flag.equals("C")) && (!player2_Set2_flag.equals("C"))) {
             player1_Set_2_textview.setText(String.valueOf(player1_Set_2_Score));
             player2_Set_2_textview.setText(String.valueOf(player2_Set_2_Score));
         }
 
-        if ((player1_Set3_flag != "C") && (player2_Set3_flag != "C")) {
+        if ((!player1_Set3_flag.equals("C")) && (!player2_Set3_flag.equals("C"))) {
             player1_Set_3_textview.setText(String.valueOf(player1_Set_3_Score));
             player2_Set_3_textview.setText(String.valueOf(player2_Set_3_Score));
         }
@@ -413,24 +458,33 @@ public class MainActivity extends AppCompatActivity {
     // Function to reset the score in Entire Match back to 0
     public void resetScore(View view) {
 
-         player1_currentScore = 0;
-         player1_Set_1_Score = 0;
-         player1_Set_2_Score = 0;
-         player1_Set_3_Score = 0;
+        player1_currentScore = 0;
+        player1_Set_1_Score = 0;
+        player1_Set_2_Score = 0;
+        player1_Set_3_Score = 0;
 
-         player1_Set1_flag = "I";
-         player1_Set2_flag = "I";
-         player1_Set3_flag = "I";
+        player1_Set1_flag = "I";
+        player1_Set2_flag = "I";
+        player1_Set3_flag = "I";
         // Variables to store current service score and Set Score for Player 2
 
-         player2_currentScore = 0;
-         player2_Set_1_Score = 0;
-         player2_Set_2_Score = 0;
-         player2_Set_3_Score = 0;
+        player2_currentScore = 0;
+        player2_Set_1_Score = 0;
+        player2_Set_2_Score = 0;
+        player2_Set_3_Score = 0;
 
-         player2_Set1_flag = "I";
-         player2_Set2_flag = "I";
-         player2_Set3_flag = "I";
+        player2_Set1_flag = "I";
+        player2_Set2_flag = "I";
+        player2_Set3_flag = "I";
+
+        Button player1_AddPoint = (Button) findViewById(R.id.player1_AddPoint);
+        player1_AddPoint.setEnabled(true);
+
+        Button player2_AddPoint = (Button) findViewById(R.id.player2_AddPoint);
+        player2_AddPoint.setEnabled(true);
+
+        player1_AddPoint.setVisibility(View.VISIBLE);
+        player2_AddPoint.setVisibility(View.VISIBLE);
 
         showScorePlayer();
 

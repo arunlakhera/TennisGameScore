@@ -7,7 +7,6 @@
     android:background="#000000"
     android:orientation="vertical">
 
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -153,6 +152,7 @@
                 android:textSize="50sp" />
 
             <Button
+                android:id="@+id/player1_AddPoint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#039BE5"
@@ -298,6 +298,7 @@
                 android:textSize="50sp" />
 
             <Button
+                android:id="@+id/player2_AddPoint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#039BE5"
