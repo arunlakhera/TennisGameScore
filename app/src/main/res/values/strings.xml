@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TennisGameScore</string>
+    <string name="player">Name</string>
+    <string name="set1">I</string>
+    <string name="set2">II</string>
+    <string name="set3">III</string>
+    <string name="set_default">0</string>
+    <string name="add_point">Add Point</string>
+    <string name="reset">Reset</string>
 </resources>

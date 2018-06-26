@@ -35,6 +35,28 @@ public class MainActivity extends AppCompatActivity {
     Button player2_AddPoint;
     Boolean matchFlag = false;
 
+    TextView currentScorePlayer1;
+    TextView currentScorePlayer2;
+    TextView player1Set1;
+    TextView player1Set2;
+    TextView player1Set3;
+
+    TextView player2Set1;
+    TextView player2Set2;
+    TextView player2Set3;
+
+    TextView player1_ServeScore;
+    TextView player2_ServeScore;
+    TextView player1_Set_1_textview;
+    TextView player2_Set_1_textview;
+    TextView player1_Set_2_textview;
+    TextView player2_Set_2_textview;
+    TextView player1_Set_3_textview;
+    TextView player2_Set_3_textview;
+
+    TextView player1_Name;
+    TextView player2_Name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,22 +65,27 @@ public class MainActivity extends AppCompatActivity {
         player1_AddPoint = (Button) findViewById(R.id.player1_AddPoint);
         player2_AddPoint = (Button) findViewById(R.id.player2_AddPoint);
 
+        player1_Name = findViewById(R.id.player1_name_textview);
+        player1_Name.setText("Nadal");
+        player2_Name = findViewById(R.id.player2_name_textview);
+        player2_Name.setText("Federer");
+
     }
 
     public void changeColor() {
 
 
-        TextView currentScorePlayer1 = (TextView) findViewById(R.id.player1_serve_score);
-        TextView currentScorePlayer2 = (TextView) findViewById(R.id.player2_serve_score);
+         currentScorePlayer1 = (TextView) findViewById(R.id.player1_serve_score);
+         currentScorePlayer2 = (TextView) findViewById(R.id.player2_serve_score);
 
-        TextView player1Set1 = (TextView) findViewById(R.id.player1_set_1_score);
-        TextView player1Set2 = (TextView) findViewById(R.id.player1_set_2_score);
-        TextView player1Set3 = (TextView) findViewById(R.id.player1_set_3_score);
+         player1Set1 = (TextView) findViewById(R.id.player1_set_1_score);
+         player1Set2 = (TextView) findViewById(R.id.player1_set_2_score);
+         player1Set3 = (TextView) findViewById(R.id.player1_set_3_score);
 
 
-        TextView player2Set1 = (TextView) findViewById(R.id.player2_set_1_score);
-        TextView player2Set2 = (TextView) findViewById(R.id.player2_set_2_score);
-        TextView player2Set3 = (TextView) findViewById(R.id.player2_set_3_score);
+         player2Set1 = (TextView) findViewById(R.id.player2_set_1_score);
+         player2Set2 = (TextView) findViewById(R.id.player2_set_2_score);
+         player2Set3 = (TextView) findViewById(R.id.player2_set_3_score);
 
         if (player1_currentScore > player2_currentScore) {
             currentScorePlayer1.setTextColor(Color.parseColor("#558B2F"));
@@ -130,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
         checkScore();
 
         if (!matchFlag) {
-            
+
                 if (player1_currentScore == 0 || player1_currentScore == 15) {
 
                     player1_currentScore = player1_currentScore + 15;
@@ -374,17 +401,17 @@ public class MainActivity extends AppCompatActivity {
     public void showScorePlayer() {
 
         // Declare TextViews to show the Player 1 and player 2 current serve score and setscore
-        TextView player1_ServeScore = (TextView) findViewById(R.id.player1_serve_score);
-        TextView player2_ServeScore = (TextView) findViewById(R.id.player2_serve_score);
+         player1_ServeScore = (TextView) findViewById(R.id.player1_serve_score);
+         player2_ServeScore = (TextView) findViewById(R.id.player2_serve_score);
 
-        TextView player1_Set_1_textview = (TextView) findViewById(R.id.player1_set_1_score);
-        TextView player2_Set_1_textview = (TextView) findViewById(R.id.player2_set_1_score);
+         player1_Set_1_textview = (TextView) findViewById(R.id.player1_set_1_score);
+         player2_Set_1_textview = (TextView) findViewById(R.id.player2_set_1_score);
 
-        TextView player1_Set_2_textview = (TextView) findViewById(R.id.player1_set_2_score);
-        TextView player2_Set_2_textview = (TextView) findViewById(R.id.player2_set_2_score);
+         player1_Set_2_textview = (TextView) findViewById(R.id.player1_set_2_score);
+         player2_Set_2_textview = (TextView) findViewById(R.id.player2_set_2_score);
 
-        TextView player1_Set_3_textview = (TextView) findViewById(R.id.player1_set_3_score);
-        TextView player2_Set_3_textview = (TextView) findViewById(R.id.player2_set_3_score);
+         player1_Set_3_textview = (TextView) findViewById(R.id.player1_set_3_score);
+         player2_Set_3_textview = (TextView) findViewById(R.id.player2_set_3_score);
 
 
         // Check if the player one score is more than 40
@@ -477,10 +504,7 @@ public class MainActivity extends AppCompatActivity {
         player2_Set2_flag = "I";
         player2_Set3_flag = "I";
 
-        Button player1_AddPoint = (Button) findViewById(R.id.player1_AddPoint);
         player1_AddPoint.setEnabled(true);
-
-        Button player2_AddPoint = (Button) findViewById(R.id.player2_AddPoint);
         player2_AddPoint.setEnabled(true);
 
         player1_AddPoint.setVisibility(View.VISIBLE);

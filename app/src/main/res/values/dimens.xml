@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="name_TextSize">30sp</dimen>
+    <dimen name="label_Med_TextSize">15sp</dimen>
+    <dimen name="label_Lar_TextSize">25sp</dimen>
+    <dimen name="currentScore_TextSize">50sp</dimen>
+    <dimen name="h_Line">3dp</dimen>
+    <dimen name="v_Line">1dp</dimen>
+</resources>
