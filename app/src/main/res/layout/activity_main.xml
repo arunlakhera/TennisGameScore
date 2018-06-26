@@ -16,10 +16,10 @@
             android:id="@+id/player_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@id/reset_button"
+            android:layout_alignParentTop="true"
             android:background="@color/backgroundBlack"
             android:orientation="horizontal"
-            android:layout_alignParentTop="true"
-            android:layout_above="@id/reset_button"
             tools:context="com.example.android.tennisgamescore.MainActivity">
 
             <LinearLayout
@@ -250,7 +250,7 @@
                         android:text="@string/set_default"
                         android:textAlignment="center"
                         android:textColor="@color/textGray"
-                        android:textSize="@dimen/label_Lar_TextSize"  />
+                        android:textSize="@dimen/label_Lar_TextSize" />
 
                     <TextView
                         android:id="@+id/player2_set_2_score"
@@ -260,7 +260,7 @@
                         android:text="@string/set_default"
                         android:textAlignment="center"
                         android:textColor="@color/textGray"
-                        android:textSize="@dimen/label_Lar_TextSize"  />
+                        android:textSize="@dimen/label_Lar_TextSize" />
 
                     <TextView
                         android:id="@+id/player2_set_3_score"
@@ -304,9 +304,9 @@
             android:id="@+id/reset_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:background="@color/backgroundGreen"
             android:onClick="resetScore"
-            android:layout_alignParentBottom="true"
             android:text="@string/reset"
             android:textColor="@color/textWhite"
             android:textSize="@dimen/label_Lar_TextSize" />

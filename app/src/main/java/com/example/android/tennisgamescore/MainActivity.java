@@ -78,14 +78,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeColor() {
 
-         currentScorePlayer1 = findViewById(R.id.player1_serve_score);
-         currentScorePlayer2 = findViewById(R.id.player2_serve_score);
-         player1Set1 = findViewById(R.id.player1_set_1_score);
-         player1Set2 = findViewById(R.id.player1_set_2_score);
-         player1Set3 = findViewById(R.id.player1_set_3_score);
-         player2Set1 = findViewById(R.id.player2_set_1_score);
-         player2Set2 = findViewById(R.id.player2_set_2_score);
-         player2Set3 = findViewById(R.id.player2_set_3_score);
+        currentScorePlayer1 = findViewById(R.id.player1_serve_score);
+        currentScorePlayer2 = findViewById(R.id.player2_serve_score);
+        player1Set1 = findViewById(R.id.player1_set_1_score);
+        player1Set2 = findViewById(R.id.player1_set_2_score);
+        player1Set3 = findViewById(R.id.player1_set_3_score);
+        player2Set1 = findViewById(R.id.player2_set_1_score);
+        player2Set2 = findViewById(R.id.player2_set_2_score);
+        player2Set3 = findViewById(R.id.player2_set_3_score);
 
         if (player1.getM_CurrentScore() > player2.getM_CurrentScore()) {
             currentScorePlayer1.setTextColor(Color.parseColor("#558B2F"));
@@ -153,11 +153,11 @@ public class MainActivity extends AppCompatActivity {
 
         if (!matchFlag) {
 
-                if (player1.getM_CurrentScore() == 0 || player1.getM_CurrentScore() == 15) {
-                    player1.setM_CurrentScore(player1.getM_CurrentScore() + 15);
-                } else if (player1.getM_CurrentScore() >= 30) {
-                    player1.setM_CurrentScore(player1.getM_CurrentScore() + 10);
-                }
+            if (player1.getM_CurrentScore() == 0 || player1.getM_CurrentScore() == 15) {
+                player1.setM_CurrentScore(player1.getM_CurrentScore() + 15);
+            } else if (player1.getM_CurrentScore() >= 30) {
+                player1.setM_CurrentScore(player1.getM_CurrentScore() + 10);
+            }
         }
 
         changeColor();
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                     player1.setM_Set1(player1.getM_Set1() + 1);
                 }
 
-            }else if (!player1.getSet2Flag().equals("C")) {
+            } else if (!player1.getSet2Flag().equals("C")) {
 
                 if (player1.getM_Set2() > 5) {
                     if (
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
                     player1.setM_Set2(player1.getM_Set2() + 1);
                 }
 
-            }else if (!player1.getSet3Flag().equals("C") && player1.getSet1Flag().equals("C") && player1.getSet2Flag().equals("C")) {
+            } else if (!player1.getSet3Flag().equals("C") && player1.getSet1Flag().equals("C") && player1.getSet2Flag().equals("C")) {
 
                 if (player1.getM_Set3() > 5) {
                     if (
@@ -286,7 +286,7 @@ public class MainActivity extends AppCompatActivity {
                     player2.setM_Set1(player2.getM_Set1() + 1);
                 }
 
-            }else if (!player2.getSet2Flag().equals("C")) {
+            } else if (!player2.getSet2Flag().equals("C")) {
 
                 if (player2.getM_Set2() > 5) {
 
@@ -308,7 +308,7 @@ public class MainActivity extends AppCompatActivity {
                     player2.setM_Set2(player2.getM_Set2() + 1);
                 }
 
-            }else if (!player2.getSet3Flag().equals("C") && player2.getSet1Flag().equals("C") && player2.getSet2Flag().equals("C")) {
+            } else if (!player2.getSet3Flag().equals("C") && player2.getSet1Flag().equals("C") && player2.getSet2Flag().equals("C")) {
 
                 if (player2.getM_Set3() > 5) {
 
@@ -354,17 +354,17 @@ public class MainActivity extends AppCompatActivity {
     public void showScorePlayer() {
 
         // Declare TextViews to show the Player 1 and player 2 current serve score and setscore
-         player1_ServeScore =  findViewById(R.id.player1_serve_score);
-         player2_ServeScore =  findViewById(R.id.player2_serve_score);
+        player1_ServeScore = findViewById(R.id.player1_serve_score);
+        player2_ServeScore = findViewById(R.id.player2_serve_score);
 
-         player1_Set_1_textview =  findViewById(R.id.player1_set_1_score);
-         player2_Set_1_textview =  findViewById(R.id.player2_set_1_score);
+        player1_Set_1_textview = findViewById(R.id.player1_set_1_score);
+        player2_Set_1_textview = findViewById(R.id.player2_set_1_score);
 
-         player1_Set_2_textview =  findViewById(R.id.player1_set_2_score);
-         player2_Set_2_textview =  findViewById(R.id.player2_set_2_score);
+        player1_Set_2_textview = findViewById(R.id.player1_set_2_score);
+        player2_Set_2_textview = findViewById(R.id.player2_set_2_score);
 
-         player1_Set_3_textview =  findViewById(R.id.player1_set_3_score);
-         player2_Set_3_textview =  findViewById(R.id.player2_set_3_score);
+        player1_Set_3_textview = findViewById(R.id.player1_set_3_score);
+        player2_Set_3_textview = findViewById(R.id.player2_set_3_score);
 
         // Check if the player one score is more than 40
         if (player1.getM_CurrentScore() > 40) {
