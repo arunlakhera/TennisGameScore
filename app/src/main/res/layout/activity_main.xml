@@ -151,7 +151,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/backgroundBlue"
-                    android:onClick="addPoint_player_1"
                     android:text="@string/add_point"
                     android:textColor="@color/textWhite"
                     android:textSize="@dimen/label_Med_TextSize" />
@@ -294,7 +293,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/backgroundBlue"
-                    android:onClick="addPoint_player_2"
                     android:text="@string/add_point"
                     android:textColor="@color/textWhite"
                     android:textSize="@dimen/label_Med_TextSize" />
